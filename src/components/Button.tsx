@@ -1,4 +1,5 @@
-import { ComponentProps, forwardRef } from 'react'
+import type { ComponentProps } from 'react'
+import { forwardRef } from 'react'
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost'
 

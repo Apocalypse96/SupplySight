@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 
 export function Card({ children }: PropsWithChildren) {
   return <div className="rounded-xl bg-white shadow-card border border-gray-200">{children}</div>

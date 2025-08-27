@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import type { ComponentProps, PropsWithChildren } from 'react'
 
 export function Table({ children }: PropsWithChildren) {
   return (
@@ -28,8 +28,8 @@ export function Tr({ children, className = '' }: PropsWithChildren<{ className?:
   return <tr className={`hover:bg-gray-50 cursor-pointer ${className}`}>{children}</tr>
 }
 
-export function Td({ children }: PropsWithChildren) {
-  return <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-900">{children}</td>
+export function Td({ children, ...rest }: PropsWithChildren<ComponentProps<'td'>>) {
+  return <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-900" {...rest}>{children}</td>
 }
 
 export default Table

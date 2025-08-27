@@ -15,7 +15,7 @@ export function ProductsPage() {
   const [search, setSearch] = useState<string>('')
   const [status, setStatus] = useState<string>('')
   const [warehouse, setWarehouse] = useState<string>('')
-  const { data: whData } = useQuery(GET_WAREHOUSES)
+  const { data: whData } = useQuery<{ warehouses: string[] }>(GET_WAREHOUSES)
   const debouncedSearch = useDebouncedValue(search, 300)
 
   useEffect(() => {

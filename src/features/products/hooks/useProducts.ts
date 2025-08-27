@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useMutation, useQuery } from '@apollo/client/react'
 import { GET_PRODUCTS, TRANSFER_STOCK, UPDATE_DEMAND } from '../services/queries'
+import type { Product } from '../../../types'
 
 export interface ProductFilters {
   search?: string
@@ -14,7 +15,7 @@ export function useProducts(initial: ProductFilters) {
   const [filters, setFilters] = useState<ProductFilters>(initial)
   const variables = useMemo(() => filters, [filters])
 
-  const { data, loading, error, refetch } = useQuery(GET_PRODUCTS, { variables })
+  const { data, loading, error, refetch } = useQuery<{ products: Product[] }>(GET_PRODUCTS, { variables })
 
   const [updateDemand] = useMutation(UPDATE_DEMAND, {
     onCompleted: () => refetch(),

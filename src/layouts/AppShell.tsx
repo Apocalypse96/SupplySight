@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 import Button from '../components/Button'
 
 export function AppShell({ children, range, onChangeRange }: PropsWithChildren & { range: number; onChangeRange: (r: number) => void }) {
